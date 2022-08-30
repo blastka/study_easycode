@@ -20,11 +20,13 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textInputEditText: TextInputEditText
+    private lateinit var viewModel: ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        viewModel = (application as MyApplication).viewModel
+
         val textView = findViewById<TextView>(R.id.textView)
         val observable = TextObservable()
         observable.observe(object : TextCallback{
@@ -32,8 +34,12 @@ class MainActivity : AppCompatActivity() {
                 textView.text = str
             }
         })
-        val viewModel = ViewModel(observable)
-        viewModel.init()
+        viewModel.init(observable)
+    }
+
+    override fun onDestroy() {
+        viewModel.clear()
+        super.onDestroy()
     }
 
 

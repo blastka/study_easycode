@@ -2,16 +2,23 @@ package com.example.myapplication2
 
 import java.util.*
 
-class ViewModel(private val textObservable: TextObservable) {
+class ViewModel(private val model: Model) {
 
-    private val model = Model.init(object : TextCallback{
+    private var textObservable: TextObservable? = null
+
+    private val textCallback = object : TextCallback {
         override fun updateText(str: String) {
-            textObservable.postValue(str)
+            textObservable?.postValue(str)
         }
 
-    })
+    }
 
-    fun init(){
-        Model.start()
+    fun init(textObservable: TextObservable){
+        this.textObservable = textObservable
+        model.start(textCallback)
+    }
+
+    fun clear(){
+        textObservable = null
     }
 }
