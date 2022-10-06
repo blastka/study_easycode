@@ -6,5 +6,7 @@ public class Lesson20 {
         if (triangleValidation.areValid()){
             Triangle triangle = triangleValidation.makeTriangle();
         }
+        Triangle triangle = new Triangle();
+        triangle.showSides();
     }
 }
