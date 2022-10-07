@@ -1,21 +1,18 @@
 package com.example.myapplication2.Java.Lesson21;
 
-public class Track {
-    private boolean isLiked;
-    private final long id;
+public abstract class Track {
+    protected final long id;
+    protected final boolean isPremiumRequared;
 
-    public Track(boolean isLiked, long id){
-        this.isLiked = isLiked;
+    protected Track(long id, boolean isPremiumReqiared){
         this.id = id;
+        this.isPremiumRequared = isPremiumReqiared;
     }
 
-    public void changeLiked(LikeService service, Ui ui){
-        if (isLiked){
-            service.unlikeTrack(id);
-            ui.unlikeTrack(id);
-        }else{
-            service.likeTrack(id);
-            ui.likeTrack(id);
-        }
+    public void play(Player player){
+        player.play(id);
     }
+
+    public abstract void changeLike(ChangeLike[] service);
+
 }

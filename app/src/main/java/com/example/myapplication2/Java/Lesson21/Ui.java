@@ -1,11 +1,14 @@
 package com.example.myapplication2.Java.Lesson21;
 
-public class Ui {
-    public void likeTrack(long id){
+public class Ui implements ChangeLike{
 
+    @Override
+    public void likeTrack(long id) {
+        //make red
     }
 
-    public void unlikeTrack(long id){
+    @Override
+    public void unlikeTrack(long id) {
 
     }
 }

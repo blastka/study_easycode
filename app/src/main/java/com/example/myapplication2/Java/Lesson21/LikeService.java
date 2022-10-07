@@ -1,11 +1,14 @@
 package com.example.myapplication2.Java.Lesson21;
 
-public class LikeService {
+public class LikeService extends CloudDataSource implements ChangeLike {
 
-    public void likeTrack(long id){
-
+    @Override
+    public void likeTrack(long id) {
+        //hhtp
     }
-    public void unlikeTrack(long id){
+
+    @Override
+    public void unlikeTrack(long id) {
 
     }
 }
