@@ -23,12 +23,12 @@ public abstract class User {
     public static class Regilar extends User{
 
         private Player player;
-        private final Navigation navigation;
+        //private final Navigation navigation;
 
         @Override
         public void play(long id, boolean isPremiumRequired) {
             if (isPremiumRequired){
-                navigation.goToPaymentScreen();
+               // navigation.goToPaymentScreen();
             }else {
                 player.play(id);
             }
