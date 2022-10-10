@@ -2,21 +2,21 @@ package com.example.myapplication2.Java.Lesson25;
 
 import org.jetbrains.annotations.NotNull;
 
-public class Repository implements MutableDataSourse {
+public class Repository<T> implements MutableDataSourse<T> {
     @NotNull
-    private final DataSource cloud;
+    private final DataSource<T> cloud;
     @NotNull
-    private final MutableDataSourse cache;
+    private final MutableDataSourse<T> cache;
 
-    public Repository(@NotNull DataSource cloud, @NotNull MutableDataSourse cache) {
+    public Repository(@NotNull DataSource<T> cloud, @NotNull MutableDataSourse<T> cache) {
         this.cloud = cloud;
         this.cache = cache;
     }
 
 
     @Override
-    public MyData data() {
-        MyData data = cache.data();
+    public T data() {
+        T data = cache.data();
         if(data == null){
             data = cloud.data();
         }
@@ -24,7 +24,7 @@ public class Repository implements MutableDataSourse {
     }
 
     @Override
-    public void saveData(MyData data) {
+    public void saveData(T data) {
         cache.saveData(data);
     }
 }

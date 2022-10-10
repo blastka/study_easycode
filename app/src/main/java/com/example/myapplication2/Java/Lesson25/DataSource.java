@@ -1,6 +1,6 @@
 package com.example.myapplication2.Java.Lesson25;
 
-public interface DataSource{
+public interface DataSource<T>{
 
-    MyData data();
+    T data();
 }
