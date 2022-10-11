@@ -2,12 +2,12 @@ package com.example.myapplication2.Java.lesson25Example2;
 
 public class CloudDataSource extends DataSource{
     @Override
-    MyData getData() {
+    public MyData getData() {
         return new MyData(1,"cloud");
     }
 
     @Override
-    void saveData(MyData data) {
+    public void saveData(MyData data) {
 
     }
 }

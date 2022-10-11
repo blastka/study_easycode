@@ -15,7 +15,7 @@ public class Repository extends DataSource{
 
 /**Если данные из кэша не удолось получить, получаем из сети**/
     @Override
-    MyData getData() {
+    public MyData getData() {
         MyData result = cache.getData();
         if (result == null){
             result = cloud.getData();
@@ -24,7 +24,7 @@ public class Repository extends DataSource{
     }
 
     @Override
-    void saveData(MyData data) {
+    public void saveData(MyData data) {
 
     }
 }
