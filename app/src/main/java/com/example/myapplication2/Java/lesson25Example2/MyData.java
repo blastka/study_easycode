@@ -8,4 +8,12 @@ public class MyData {
         this.id = id;
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "MyData{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
