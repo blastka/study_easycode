@@ -1,14 +1,17 @@
 package com.example.myapplication2.Java.lesson25Example2;
 
-/** Наследуемся от общего для всех абстрактного класса, так как от двух не можем отнаследоваться
+/** 1 Наследуемся от общего для всех абстрактного класса, так как от двух не можем отнаследоваться
  * И логика у всех трех классов пока одинаковая
  * Можно сказать используем особенности наследования
+ *
+ * 2 Так как у репозитория должно быть в итоге метод получения и сохранения, наследуемся от
+ * MutableDataSource
  */
-public class Repository extends DataSource{
-    private final DataSource cache;
+public class Repository implements MutableDataSource{
+    private final MutableDataSource cache;
     private final DataSource cloud;
 
-    public Repository(DataSource cache, DataSource cloud) {
+    public Repository(MutableDataSource cache, DataSource cloud) {
         this.cache = cache;
         this.cloud = cloud;
     }
@@ -25,6 +28,6 @@ public class Repository extends DataSource{
 
     @Override
     public void saveData(MyData data) {
-
+        cache.saveData(data);
     }
 }

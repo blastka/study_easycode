@@ -11,6 +11,8 @@ public class Solution {
 
         MyData myData = repository.getData();
         print(myData);
+        myData = repository.getData();
+        print(myData);
     }
 
     public static void print(Object text) {

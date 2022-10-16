@@ -1,15 +1,22 @@
 package com.example.myapplication2.Java.lesson25Example2;
 
-public class CachedDataSource extends DataSource{
-    /**Для примера вернем объект MyData с какими-то данными**/
+public class CachedDataSource implements MutableDataSource {
+    /**
+     * Реализуем приватное свойство для примера. Это не геттеры сеттеры. Далее они должны были бы
+     * замениться на методы получения/сохранения данных.
+     * Этот класс кеш, в него можно сохранять данные, поэтому отнаследуемся от
+     * MutableDataSource
+     * **/
+    private MyData myData;
+
     @Override
     public MyData getData() {
-        return new MyData(1,"cache");
+        return myData;
     }
 
     @Override
     public void saveData(MyData data) {
-
+        myData = data;
     }
 
 }
