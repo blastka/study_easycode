@@ -13,6 +13,15 @@ public class Solution {
         //так можно переиспользовать для разных данных репозиторий
         Repository<MyGeoData> repository1 = new Repository<>(new CachedDataSource<>(), new GeoDataDataSource());
         MyGeoData geoData = repository1.getData();
+
+        //Можно использовать анонимные классы таким образом, "создав класс без названия" и
+        //порадив объект DataSource<Person>, заимплементировав здесь метод
+        Repository<Person> repository2 = new Repository<>(new CachedDataSource<>(), new DataSource<Person>() {
+            @Override
+            public Person getData() {
+                return null;
+            }
+        });
     }
 
     public static void print(Object text) {
