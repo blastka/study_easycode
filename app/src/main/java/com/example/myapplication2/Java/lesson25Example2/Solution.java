@@ -10,6 +10,7 @@ public class Solution {
         Repository<MyData> repository = new Repository<>(new CachedDataSource<>(), new MyDataCloudDataSource());
         MyData data = repository.getData();
 
+        //так можно переиспользовать для разных данных репозиторий
         Repository<MyGeoData> repository1 = new Repository<>(new CachedDataSource<>(), new GeoDataDataSource());
         MyGeoData geoData = repository1.getData();
     }
