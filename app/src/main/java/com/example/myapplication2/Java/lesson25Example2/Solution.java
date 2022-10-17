@@ -5,14 +5,13 @@ public class Solution {
      * родителя. Далее так как функция getData делает return, то нужно занести ее в переменную
      */
     public static void main(String[] args) {
-        CachedDataSource cache = new CachedDataSource();
-        CloudDataSource cloud = new CloudDataSource();
-        Repository repository = new Repository(cache, cloud);
+        //Почему конструктор требует тип, а сам класс не требует? Потому что в конструкторе
+        //интерфейсы, а вызов конструктора кидаются наследники, созданные объекты
+        Repository<MyData> repository = new Repository<>(new CachedDataSource<>(), new MyDataCloudDataSource());
+        MyData data = repository.getData();
 
-        MyData myData = repository.getData();
-        print(myData);
-        myData = repository.getData();
-        print(myData);
+        Repository<MyGeoData> repository1 = new Repository<>(new CachedDataSource<>(), new GeoDataDataSource());
+        MyGeoData geoData = repository1.getData();
     }
 
     public static void print(Object text) {

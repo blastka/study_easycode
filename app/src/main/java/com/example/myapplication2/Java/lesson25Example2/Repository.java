@@ -7,19 +7,20 @@ package com.example.myapplication2.Java.lesson25Example2;
  * 2 Так как у репозитория должно быть в итоге метод получения и сохранения, наследуемся от
  * MutableDataSource
  */
-public class Repository implements MutableDataSource{
-    private final MutableDataSource cache;
-    private final DataSource cloud;
+public class Repository<T> implements MutableDataSource<T>{
+    private final MutableDataSource<T> cache;
+    private final DataSource<T> cloud;
 
-    public Repository(MutableDataSource cache, DataSource cloud) {
+    //Это как корневый интерфейсы, естественно они требуют тип
+    public Repository(MutableDataSource<T> cache, DataSource<T> cloud) {
         this.cache = cache;
         this.cloud = cloud;
     }
 
 /**Если данные из кэша не удолось получить, получаем из сети**/
     @Override
-    public MyData getData() {
-        MyData result = cache.getData();
+    public T getData() {
+        T result = cache.getData();
         if (result == null){
             result = cloud.getData();
         }
@@ -27,7 +28,8 @@ public class Repository implements MutableDataSource{
     }
 
     @Override
-    public void saveData(MyData data) {
+    public void saveData(T data) {
+
         cache.saveData(data);
     }
 }

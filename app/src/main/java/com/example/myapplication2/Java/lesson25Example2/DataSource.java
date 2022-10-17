@@ -7,6 +7,6 @@ package com.example.myapplication2.Java.lesson25Example2;
  * MutableDataSource добавим
  * наследование от этого интерфейса. Это называется сегрегацией интерфейсов.
  * **/
-public interface DataSource {
-    MyData getData();
+public interface DataSource<T> {
+    T getData();
 }
