@@ -1,6 +1,6 @@
 package com.example.myapplication2.Java.lesson25Example2;
 
-public class MyGeoData {
+public class MyGeoData extends CloudObject{
     private final int id;
     private final double longtube;
     private final double latitube;

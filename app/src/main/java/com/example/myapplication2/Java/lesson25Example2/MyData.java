@@ -1,6 +1,6 @@
 package com.example.myapplication2.Java.lesson25Example2;
 
-public class MyData {
+public class MyData extends CloudObject{
     private final int id;
     private final String description;
 

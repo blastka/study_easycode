@@ -7,7 +7,7 @@ package com.example.myapplication2.Java.lesson25Example2;
  * 2 Так как у репозитория должно быть в итоге метод получения и сохранения, наследуемся от
  * MutableDataSource
  */
-public class Repository<T> implements MutableDataSource<T>{
+public class Repository<T extends CloudObject> implements MutableDataSource<T>{
     private final MutableDataSource<T> cache;
     private final DataSource<T> cloud;
 
