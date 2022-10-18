@@ -11,7 +11,7 @@ public class Solution {
         MyData data = repository.getData();
 
         //так можно переиспользовать для разных данных репозиторий
-        Repository<MyGeoData> repository1 = new Repository<>(new CachedDataSource<>(), new GeoDataDataSource());
+        GeoRepository repository1 = new GeoRepository(new GeoCache(), new GeoDataDataSource());
         MyGeoData geoData = repository1.getData();
 
         //Можно использовать анонимные классы таким образом, "создав класс без названия" и
