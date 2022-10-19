@@ -9,8 +9,8 @@ package com.example.myapplication2.Java.lesson26;
 public class Solution {
     public static void main(String[] args) {
         Executor executor = new Executor();
-        final Log log = new Log.Local();
-        DataCallback callback = new DataCallback.Base(log);
-        executor.execute(callback);
+        final Log log = new Log.Local();//Создали объект, его класс в интерфейсе Log
+        DataCallback callback = new DataCallback.Base(log);//создали объект, его класс в интерфейсе DataCallback
+        executor.execute(callback);//запустили метод, в котором отрабатывают колбэки
     }
 }
