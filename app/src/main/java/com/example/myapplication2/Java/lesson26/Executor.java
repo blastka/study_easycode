@@ -5,14 +5,14 @@ import androidx.annotation.Nullable;
 public class Executor {
     /**
      * Если пустой тип, как вернуть тогда эти два объекта?
-     * Сымитировали невозможность адекватного получения разных типов через return
+     * Для возвращений нескольких объектов DataContainer или ErrorInfo сделали callback
      */
     @Nullable
-    public Object execute(){
+    public void execute(DataCallback dataCallback){
         try{
-            return new DataContainer();
+            dataCallback.returnSuccess(new DataContainer());
         }catch (Exception e){
-            return new ErrorInfo(e.getMessage(), e.getCause().toString());
+            dataCallback.returnError(new ErrorInfo(e.getMessage(), e.getCause().toString()));
         }
     }
 }
