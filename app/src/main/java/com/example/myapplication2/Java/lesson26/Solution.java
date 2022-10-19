@@ -10,17 +10,7 @@ public class Solution {
     public static void main(String[] args) {
         Executor executor = new Executor();
         final Log log = new Log.Local();
-        DataCallback callback = new DataCallback() {
-            @Override
-            public void returnSuccess(DataContainer dataContainer) {
-                dataContainer.show();
-            }
-
-            @Override
-            public void returnError(ErrorInfo errorInfo) {
-                errorInfo.log(log);
-            }
-        };
+        DataCallback callback = new DataCallback.Base(log);
         executor.execute(callback);
     }
 }
