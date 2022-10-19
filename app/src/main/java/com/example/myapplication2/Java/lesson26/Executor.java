@@ -6,9 +6,11 @@ public class Executor {
     /**
      * Если пустой тип, как вернуть тогда эти два объекта?
      * Для возвращений нескольких объектов DataContainer или ErrorInfo сделали callback
+     * Если сделали абстрактным классом, сделали бы дженерико типизированным
+     * Не решает сам, что делать дальше.
      */
     @Nullable
-    public void execute(DataCallback dataCallback){
+    public void execute(DataCallback<DataContainer,ErrorInfo> dataCallback){
         try{
             dataCallback.returnSuccess(new DataContainer());
         }catch (Exception e){
