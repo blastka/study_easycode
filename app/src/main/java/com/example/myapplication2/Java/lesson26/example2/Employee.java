@@ -1,6 +1,6 @@
 package com.example.myapplication2.Java.lesson26.example2;
 
-public abstract class Employee {
+public abstract class Employee implements TaskHandler{
     private final TaskProgressCallback callback;
     private final String name;
     private final Task.Status taskstatus;
@@ -12,12 +12,19 @@ public abstract class Employee {
         this.taskstatus = taskstatus;
     }
 
-    public void doTask(Task task){
-        System.out.println(getClass().getSimpleName() + " " + name
-        + " id doing task " + getDetails(task));
-        callback.updateTask(getTaskWhenDone(task));
+    public boolean doTask(Task task){
+        boolean canHandle = taskstatus == task.getStatus();
+        if (canHandle) {
+            System.out.println(getClass().getSimpleName() + " " + name
+                    + " id doing task " + getDetails(task));
+            callback.updateTask(getTaskWhenDone(task));
+        }
+        return canHandle;
     }
 
+    public boolean canHandle(Task task){
+        return taskstatus == task.getStatus();
+    }
     public Task.Status getTaskStatus(){
         return taskstatus;
     }

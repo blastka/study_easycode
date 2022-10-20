@@ -1,25 +1,22 @@
 package com.example.myapplication2.Java.lesson26.example2;
 
-public class EmployeeChain {
-    private final Employee employee;
-    private EmployeeChain nextEmployeeChain;
+public class EmployeeChain implements TaskHandler{
+    private final TaskHandler first;
+    private final TaskHandler second;
 
-    public EmployeeChain(Employee employee) {
-        this.employee = employee;
+    public EmployeeChain(TaskHandler first, TaskHandler second) {
+        this.first = first;
+        this.second = second;
     }
+
 
     public boolean doTask(Task task) {
-        if (task.getStatus() == employee.getTaskStatus()){
-            employee.doTask(task);
-            return true;
-        } else if (nextEmployeeChain != null){
-            return nextEmployeeChain.doTask(task);
-        }else
-            return false;
-    }
-
-    public void setNextEmployeeChain(EmployeeChain nextEmployeeChain){
-        this.nextEmployeeChain = nextEmployeeChain;
+        boolean result;
+        result = first.doTask(task);
+        if (!result){
+            result = second.doTask(task);
+        }
+        return result;
     }
 
 }

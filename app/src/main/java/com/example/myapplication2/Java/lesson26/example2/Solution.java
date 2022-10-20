@@ -11,12 +11,14 @@ public class Solution {
                 factory.updateTask(task);
             }
         };
-        EmployeeChain chain = new EmployeeChain(new Designer(callback, "Al"));
-        EmployeeChain next = new EmployeeChain(new Programmer(callback, "J"));
-        EmployeeChain last = new EmployeeChain(new Tester(callback, "St"));
-        next.setNextEmployeeChain(last);
-        chain.setNextEmployeeChain(next);
-        while (true){
+        EmployeeChain chain = new EmployeeChain(
+                new EmployeeChain(
+                        new Designer(callback, "h"),
+                        new Programmer(callback, "J")
+                ),
+                new Tester(callback, "S")
+        );
+        while (true) {
             if (!chain.doTask(factory.getTask()))
                 break;
         }
