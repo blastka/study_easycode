@@ -8,8 +8,8 @@ import com.example.myapplication2.Java.lesson26.Log;
 public class Solution {
     public static void main(String[] args) {
         Executor executor = new Executor();
-        executor.setDataCallback(new DataCallback.Base(new Log.Local()));
+        executor.addCallback(new DataCallback.Base(new Log.Local()));
         executor.execute();
-        executor.setDataCallback(null);//когда колбэк не нужен, его занулять
+        executor.removeCallback(null);//когда колбэк не нужен, его занулять
     }
 }

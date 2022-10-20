@@ -6,25 +6,34 @@ import com.example.myapplication2.Java.lesson26.DataCallback;
 import com.example.myapplication2.Java.lesson26.DataContainer;
 import com.example.myapplication2.Java.lesson26.ErrorInfo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Паттерн наблюдатель. Через сеттер прокидывать из вне,
  * когда колбэк не нужен, его занулять
  */
 public class Executor {
 
-    private DataCallback<DataContainer, ErrorInfo> dataCallback;
+    private final List<DataCallback<DataContainer, ErrorInfo>> dataCallbacks = new ArrayList<>();
 
-    public void setDataCallback(DataCallback<DataContainer, ErrorInfo> dataCallback) {
-        this.dataCallback = dataCallback;
+    public void addCallback(DataCallback<DataContainer, ErrorInfo> dataCallback) {
+        dataCallbacks.add(dataCallback);
+    }
+
+    public void removeCallback(DataCallback<DataContainer, ErrorInfo> dataCallback){
+        dataCallbacks.remove(dataCallback);
     }
 
     @Nullable
     public void execute(){
         try{
-            if (dataCallback != null)
-                dataCallback.returnSuccess(new DataContainer());
+            for (DataCallback<DataContainer, ErrorInfo> dataCallback : dataCallbacks) {
+                if (dataCallback != null)
+                    dataCallback.returnSuccess(new DataContainer());
+            }
         }catch (Exception e){
-            dataCallback.returnError(new ErrorInfo(e.getMessage(), e.getCause().toString()));
+                //dataCallback.returnError(new ErrorInfo(e.getMessage(), e.getCause().toString()));
         }
     }
 }
