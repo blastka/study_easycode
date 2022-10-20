@@ -1,7 +1,7 @@
 package com.example.myapplication2.Java.lesson26.example2;
 
 public class Tester extends Employee{
-    protected Tester(TaskProgressCallback callback, String name, Task.Status taskstatus) {
+    protected Tester(TaskProgressCallback callback, String name) {
         super(callback, name, Task.Status.READY_FOR_TESTING);
     }
 
@@ -11,9 +11,9 @@ public class Tester extends Employee{
                 task.getId(),
                 Task.Status.DONE,
                 task.getDescription(),
-                getDesignLinkForTask(task.getId()),
-                getTestCaseForTask(task.getDescription()),
-                ""
+                task.getDesignLink(),
+                task.getTestcase(),
+                task.getBuildLink()
         );
     }
 
@@ -22,11 +22,4 @@ public class Tester extends Employee{
         return " with taskId" + task.getId() + " and description " + task.getDescription();
     }
 
-    private String getDesignLinkForTask(int taskId){
-        return "https//" + taskId;
-    }
-
-    private String getTestCaseForTask(String taskDectiprion){
-        return "when" + taskDectiprion + " get result" + Math.random();
-    }
 }
