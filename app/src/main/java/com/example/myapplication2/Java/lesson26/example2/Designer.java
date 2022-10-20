@@ -1,7 +1,7 @@
 package com.example.myapplication2.Java.lesson26.example2;
 
 public class Designer extends Employee{
-    protected Designer(TaskProgressCallback callback, String name, Task.Status taskstatus) {
+    protected Designer(TaskProgressCallback callback, String name) {
         super(callback, name, Task.Status.ASSEMBLING_REQUIREMENTS);
     }
 
