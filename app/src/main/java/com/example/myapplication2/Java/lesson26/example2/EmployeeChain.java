@@ -8,14 +8,14 @@ public class EmployeeChain {
         this.employee = employee;
     }
 
-    public void doTask(Task task) {
+    public boolean doTask(Task task) {
         if (task.getStatus() == employee.getTaskStatus()){
             employee.doTask(task);
-        } else if (nextEmployeeChain != null) {
-            nextEmployeeChain.doTask(task);
-        } else {
-            throw new IllegalArgumentException("task can.t be handled");
-        }
+            return true;
+        } else if (nextEmployeeChain != null){
+            return nextEmployeeChain.doTask(task);
+        }else
+            return false;
     }
 
     public void setNextEmployeeChain(EmployeeChain nextEmployeeChain){

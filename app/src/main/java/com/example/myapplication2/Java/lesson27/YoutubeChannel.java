@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class YoutubeChannel {
-    private final List<Subscriber> subscriberList = new ArrayList<>();
+    /*private final List<Subscriber> subscriberList = new ArrayList<>();
 
     private void addSubscribe(Subscriber subscriber){
         subscriberList.add(subscriber);
@@ -37,5 +37,5 @@ class VideoTrack{
 }
 
 interface Show<T>{
-    void show(T data);
+    void show(T data);*/
 }

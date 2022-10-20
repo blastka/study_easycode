@@ -17,7 +17,8 @@ public class Solution {
         next.setNextEmployeeChain(last);
         chain.setNextEmployeeChain(next);
         while (true){
-            chain.doTask(factory.getTask());
+            if (!chain.doTask(factory.getTask()))
+                break;
         }
     }
 }
