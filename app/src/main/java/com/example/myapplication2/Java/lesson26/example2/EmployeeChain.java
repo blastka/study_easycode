@@ -13,8 +13,10 @@ public class EmployeeChain implements TaskHandler{
     public boolean doTask(Task task) {
         boolean result;
         result = first.doTask(task);
+        System.out.println("doTask result " + result);
         if (!result){
             result = second.doTask(task);
+            System.out.println("doTask !result " + result);
         }
         return result;
     }

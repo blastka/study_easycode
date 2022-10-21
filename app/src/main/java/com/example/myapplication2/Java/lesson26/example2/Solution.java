@@ -2,8 +2,6 @@ package com.example.myapplication2.Java.lesson26.example2;
 
 public class Solution {
     public static void main(String[] args) {
-
-
         TaskFactory factory = new TaskFactory();
         TaskProgressCallback callback = new TaskProgressCallback() {
             @Override

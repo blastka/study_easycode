@@ -9,6 +9,10 @@ public class Contact {
         this.mail = mail;
     }
 
+    /**
+     * Пример закидывания объект в объект для получения данных не используя геттеры
+     * @param share
+     */
     public void show(Share share){
         share.share("Name and email = " + name + " " + mail);
     }

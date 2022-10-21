@@ -1,9 +1,7 @@
 package com.example.myapplication2.Java.lesson27;
 
-import com.example.myapplication2.Java.lesson26.DataCallback;
-import com.example.myapplication2.Java.lesson26.DataContainer;
-import com.example.myapplication2.Java.lesson26.ErrorInfo;
-import com.example.myapplication2.Java.lesson26.Log;
+import com.example.myapplication2.Java.lesson26.example1.DataCallback;
+import com.example.myapplication2.Java.lesson26.example1.Log;
 
 public class Solution {
     public static void main(String[] args) {

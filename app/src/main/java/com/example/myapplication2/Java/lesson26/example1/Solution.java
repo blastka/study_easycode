@@ -1,4 +1,4 @@
-package com.example.myapplication2.Java.lesson26;
+package com.example.myapplication2.Java.lesson26.example1;
 
 /**
  * В итоге получили такую логику - метод execute

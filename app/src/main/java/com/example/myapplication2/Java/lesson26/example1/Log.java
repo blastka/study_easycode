@@ -1,4 +1,4 @@
-package com.example.myapplication2.Java.lesson26;
+package com.example.myapplication2.Java.lesson26.example1;
 
 public interface Log {
     void log(String text);

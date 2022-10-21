@@ -2,9 +2,9 @@ package com.example.myapplication2.Java.lesson27;
 
 import androidx.annotation.Nullable;
 
-import com.example.myapplication2.Java.lesson26.DataCallback;
-import com.example.myapplication2.Java.lesson26.DataContainer;
-import com.example.myapplication2.Java.lesson26.ErrorInfo;
+import com.example.myapplication2.Java.lesson26.example1.DataCallback;
+import com.example.myapplication2.Java.lesson26.example1.DataContainer;
+import com.example.myapplication2.Java.lesson26.example1.ErrorInfo;
 
 import java.util.ArrayList;
 import java.util.List;
