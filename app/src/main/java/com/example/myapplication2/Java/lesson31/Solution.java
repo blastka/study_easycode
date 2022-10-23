@@ -11,8 +11,9 @@ import java.util.Date;
 
 public class Solution {
     public static void main(String[] args) {
-        new Thread(() -> load("one")).start();
-        new Thread(() -> load("two")).start();
+        new Download("one").start();
+        new Download("two").start();
+
         factorial(10);
     }
 
@@ -21,24 +22,6 @@ public class Solution {
             return 1;
         System.out.println(argument);
         return argument * factorial(argument - 1);
-    }
-
-    public static void load(String name){
-        System.out.println("starting at " + new Date());
-        final String url = "https://mobimg.b-cdn.net/v3/fetch/b0/b029ca34284a080eb5c509994966d6f1.jpeg";
-
-        try (BufferedInputStream inputStream = new BufferedInputStream(new URL(url).openStream())) {
-            FileOutputStream fileOutputStream = new FileOutputStream(name + ".jpeg");
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = inputStream.read(buffer, 0, 1024)) != -1) {
-                fileOutputStream.write(buffer, 0, bytesRead);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            System.out.println("finished at " + new Date());
-        }
     }
 
 
