@@ -8,7 +8,7 @@ public class Solution {
         downloadThread.start();
         DownloadThread downloadThread2 = new DownloadThread(callback, "two");
         downloadThread2.start();
-        downloadThread.join();
+        downloadThread.join();//join для метода showTotal, дождаться работы потоков
         downloadThread2.join();
         callback.showTotal(System.out);
         factorial(10);
