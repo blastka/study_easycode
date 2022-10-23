@@ -1,19 +1,16 @@
 package com.example.myapplication2.Java.lesson31;
 
-import com.example.myapplication2.Any.Data;
-
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Date;
-
 public class Solution {
-    public static void main(String[] args) {
-        new Download("one").start();
-        new Download("two").start();
+    public static void main(String[] args) throws InterruptedException {
 
+        ProgressCallback.Base callback = new ProgressCallback.Base();
+        DownloadThread downloadThread = new DownloadThread(callback, "one");
+        downloadThread.start();
+        DownloadThread downloadThread2 = new DownloadThread(callback, "two");
+        downloadThread2.start();
+        downloadThread.join();
+        downloadThread2.join();
+        callback.showTotal(System.out);
         factorial(10);
     }
 

@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 
-public class Download extends Thread {
+public class DownloadThread extends Thread {
 
+    private final ProgressCallback progressCallback;
     private final String name;
 
-    public Download(String name) {
+    public DownloadThread(ProgressCallback progressCallback, String name) {
+        this.progressCallback = progressCallback;
         this.name = name;
     }
 
@@ -24,8 +26,10 @@ public class Download extends Thread {
             FileOutputStream fileOutputStream = new FileOutputStream(name + ".jpeg");
             byte[] buffer = new byte[1024];
             int bytesRead;
+            int i = 0;
             while ((bytesRead = inputStream.read(buffer, 0, 1024)) != -1) {
                 fileOutputStream.write(buffer, 0, bytesRead);
+                progressCallback.updatePercent(i++);
             }
         } catch (IOException e) {
             e.printStackTrace();
