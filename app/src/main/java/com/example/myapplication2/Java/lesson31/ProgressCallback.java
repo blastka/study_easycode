@@ -9,7 +9,7 @@ public interface ProgressCallback {
     void updatePercent(int count);
 
     class Base implements ProgressCallback{
-        
+
         private int total = 0;
 
         /**
@@ -18,11 +18,15 @@ public interface ProgressCallback {
          * synchronized дает выполнять метод по очереди.
          * @param count
          */
+        private static final Object object = new Object();
+
         @Override
-        public synchronized void updatePercent(int count) {
-            System.out.println("-----");
-            System.out.println("1");
-            total+= count;
+        public void updatePercent(int count) {
+            synchronized (object) {
+                System.out.println("-----");
+                System.out.println("1");
+                total += count;
+            }
         }
 
         public void showTotal(PrintStream stream){
