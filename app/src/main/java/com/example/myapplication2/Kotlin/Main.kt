@@ -19,11 +19,12 @@ class A:AI {
     }
 
     private var x: Int = 0;
-    override fun sum(a: Int, b: Int) {
+    override fun sum(a: Int, b: Int): Int {
         x = a + b
+        return x
     }
 }
 
 interface AI{
-    fun sum(a: Int, b: Int)
+    fun sum(a: Int, b: Int): Int
 }
