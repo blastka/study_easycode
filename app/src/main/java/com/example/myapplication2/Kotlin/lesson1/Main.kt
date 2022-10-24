@@ -1,10 +1,26 @@
 package com.example.myapplication2.Kotlin.lesson1
 
-class Main {
+import android.util.Log
+import com.example.myapplication2.Kotlin.A
+
+object Main {
+    @JvmStatic
+    fun main(args: Array<String>){
+        x()
+        //Test.b // нельзя получить доступ
+        Test.x //считай просто доступ без создания обьекта
+        val test = Test()
+        //test.x // нельзя получить доступ
+        //test.b // нельзя получить доступ
+    }
+
     fun x(){
-        val a: MutableList<String> = mutableListOf("a", "b")
+        val a: UniqueList<String> = UniqueList()//пример чтобы не использовать эстеншн функции
         a.add("5")
-        a.addItem("1")//от себя добавляемые методы другого цвета
+        println(a)
+        val b: MutableList<String> = mutableListOf()
+            b.addItem("1")//от себя добавляемые методы другого цвета
+        println(b)
     }
 }
 
