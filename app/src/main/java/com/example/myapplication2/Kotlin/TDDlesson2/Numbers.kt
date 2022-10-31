@@ -18,9 +18,6 @@ interface Numbers {
         }
 
         override fun divide(): Double {
-            /*
-            если второй аргумент равен нулю то сказать, что на ноль делить нельзя
-             */
             if (number2 == 0){
                 throw IllegalArgumentException("На ноль делить нельзя!")
             }
