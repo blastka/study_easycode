@@ -46,4 +46,10 @@ internal class NumbersTest{
         Assert.assertEquals(expected, actual, 0.0001)
     }
 
+    @Test(expected = IllegalArgumentException::class)
+    fun testDivideZeroTwo(){
+        val numbers = Numbers.Base(3,0)
+        numbers.divide()
+    }
+
 }
