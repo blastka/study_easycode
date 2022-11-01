@@ -14,7 +14,7 @@ public class A {
 
 
     int sum(int a, int b){
-        log.log("summary");
+        log.log("summary a + b");
         return a + b;
     }
 }

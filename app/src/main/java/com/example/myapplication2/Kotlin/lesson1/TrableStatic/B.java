@@ -8,7 +8,7 @@ public class B {
     public static void main(String[] args) {
         final Set<Object> result = new HashSet();
                 Log log = object -> result.add(object);
-        A a = new A(log);
+        A a = new A(log);//вот так мы заменим реализацию входящих объектов
         for (int i = 0; i < 100; i++){
             a.sum(i,2);
         }
