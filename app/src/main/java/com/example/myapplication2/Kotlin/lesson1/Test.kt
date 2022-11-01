@@ -13,13 +13,13 @@ class Test {
     }
 
     fun main(){
-        Test.b
-        Test.x
+        b
+        x
         R.r
     }
 }
 
 object R{
-    const val r = "r"
+     const val r = "r"
 }
 
