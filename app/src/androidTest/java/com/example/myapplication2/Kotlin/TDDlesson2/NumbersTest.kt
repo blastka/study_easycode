@@ -7,11 +7,37 @@ import java.lang.Double.POSITIVE_INFINITY
 
 internal class NumbersTest{
     @Test
-    fun testSum(){
-        val numbers = Numbers.Base(12,4)
-        val actual = numbers.sum()
-        val expected = 16
-        Assert.assertEquals(expected, actual)
+    fun testSumLong(){
+        val numbers = Numbers.Base(2_000_000_000,147483648)
+        val isSumLong = numbers.isSumLong()
+        val expected = true
+        Assert.assertEquals(expected, isSumLong)
+        val actual: Long = numbers.sumLong()
+        val expectedNumber: Long = Int.MAX_VALUE + 1L
+        Assert.assertEquals(expectedNumber, actual)
+    }
+
+    @Test
+    fun testSumInt(){
+        val numbers = Numbers.Base(2_000_000_000,147483647)
+        val isSumLong = numbers.isSumLong()
+        val expected = false
+        Assert.assertEquals(expected, isSumLong)
+        val actual: Int = numbers.sumInt()
+        val expectedNumber: Int = Int.MAX_VALUE
+        Assert.assertEquals(expectedNumber, actual)
+    }
+
+    @Test(expected = IllegalStateException::class)
+    fun testSumIntNoCheck(){
+        val numbers = Numbers.Base(2_000_000_000,2_000_000_000)
+        numbers.sumInt()
+    }
+
+    @Test(expected = IllegalStateException::class)
+    fun testSumLongNoCheck(){
+        val numbers = Numbers.Base(2_000_000_000,2_000_000_000)
+        numbers.sumLong()
     }
 
     @Test
