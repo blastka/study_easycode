@@ -1,10 +1,12 @@
 package com.example.myapplication2.Kotlin.lesson1.TrableStatic;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class B {
     public static void main(String[] args) {
-        final ArrayList result = new ArrayList();
+        final Set<Object> result = new HashSet();
                 Log log = object -> result.add(object);
         A a = new A(log);
         for (int i = 0; i < 100; i++){
