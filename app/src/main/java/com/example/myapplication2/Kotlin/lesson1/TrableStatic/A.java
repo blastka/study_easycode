@@ -14,7 +14,8 @@ public class A {
 
 
     int sum(int a, int b){
-        log.log("summary a + b");
+        log.log("summary a + b");//Если бы тут было System.out.println("summary")
+        //то мы бы не смогли заменить реализацию как в случае log.log("summary a + b");
         return a + b;
     }
 }
