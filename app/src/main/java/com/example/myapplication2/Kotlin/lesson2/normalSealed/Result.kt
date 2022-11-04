@@ -1,4 +1,4 @@
-package com.example.myapplication2.Kotlin.lesson2.notSealed
+package com.example.myapplication2.Kotlin.lesson2.normalSealed
 
 sealed class Result {
     abstract fun handle(handleResult: HandleResult)
