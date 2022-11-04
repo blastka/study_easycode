@@ -6,22 +6,22 @@ class Construct {
     object J {
         @JvmStatic
         fun main(args: Array<String>) {
-            val simpleClass = SimpleClass(1)
-            val simpleClass2 = SimpleClass("1")
-
+            val simpleClass = SimpleClass("1")
         }
     }
 }
 
-class SimpleClass(){
+class SimpleClass{
     private var data: Int = 0
 
-    constructor(txt: String = "") : this() {
+    constructor(txt: String = "") : this(txt.length) {
         data = txt.length
+        println(txt)
     }
 
-    constructor(number: Int) : this() {
+    constructor(number: Int) {
         data = number
+        println(number)
     }
 
 }
