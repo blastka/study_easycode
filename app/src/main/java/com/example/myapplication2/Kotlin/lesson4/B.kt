@@ -64,6 +64,19 @@ class B {
                 two()
             }
 
+            AB.Base().run {
+                one()
+            }
+            val ab2 : AB? = null
+            //run проверяет на null
+            ab2?.run {
+                one()
+            }
+
+            with(ab2){
+                ab2?.one()
+            }
+
         }
         //разница let also, let не может отдать объект
         /*fun getTest(): AB{
