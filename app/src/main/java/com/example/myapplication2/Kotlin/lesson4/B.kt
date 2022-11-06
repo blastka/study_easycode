@@ -25,7 +25,7 @@ class B {
                 it.get(1)
             }
 
-            val x: InputStream = InputStream
+            /*val x: InputStream
             try {
                 //это лямбда внутри скобок
                 x.use { inputStream ->
@@ -33,7 +33,7 @@ class B {
                 }
             }catch (e: Exception){
 
-            }
+            }*/
 
 
         }
