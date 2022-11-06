@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Ajava {
     private final String a;
     private final int b;
+    private final Callback callback;
 
-    public Ajava(String a, int b) {
+    public Ajava(String a, int b, Callback callback) {
         this.a = a;
         this.b = b;
+        this.callback = callback;
     }
 
     @Override
@@ -21,7 +23,7 @@ public class Ajava {
 
     @Override
     public boolean equals(Object o) {
-        System.out.println("equals");
+        callback.equalsCalled();
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ajava ajava = (Ajava) o;
@@ -30,7 +32,9 @@ public class Ajava {
 
     @Override
     public int hashCode() {
-        System.out.println("hashCode");
+        callback.hashCodeCalled();
         return Objects.hash(a, b);
     }
+
+
 }
