@@ -36,7 +36,9 @@ class B {
             }catch (e: Exception){
 
             }*/
-            //with
+
+            /**with
+             * */
             val ab = AB.Base()
             ab.one()
             ab.two()
@@ -64,8 +66,10 @@ class B {
                 two()
             }
 
+            //run
             AB.Base().run {
                 one()
+
             }
             val ab2 : AB? = null
             //run проверяет на null
