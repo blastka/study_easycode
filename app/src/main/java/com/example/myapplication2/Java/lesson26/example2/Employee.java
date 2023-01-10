@@ -1,5 +1,7 @@
 package com.example.myapplication2.Java.lesson26.example2;
 
+import androidx.annotation.NonNull;
+
 public abstract class Employee implements TaskHandler{
     private final TaskProgressCallback callback;
     private final String name;
@@ -12,7 +14,7 @@ public abstract class Employee implements TaskHandler{
         this.taskstatus = taskstatus;
     }
 
-    public boolean doTask(Task task){
+    public boolean doTask(@NonNull Task task){
         boolean canHandle = taskstatus == task.getStatus();
         if (canHandle) {
             System.out.println(getClass().getSimpleName() + " " + name
