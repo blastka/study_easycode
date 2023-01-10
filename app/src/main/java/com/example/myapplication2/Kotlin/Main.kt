@@ -14,8 +14,8 @@ object Main {
 
 class A:AI {
 
-    companion object{
-        private const val a = "a"
+    private companion object{
+        const val a = "a"
     }
 
     private var x: Int = 0;
