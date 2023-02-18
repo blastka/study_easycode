@@ -6,7 +6,7 @@ package com.example.myapplication2.Kotlin.Mapper
  */
 class One1(private val a: String){
     fun show(b : Two1){
-
+        b.showString(a)
     }
 }
 

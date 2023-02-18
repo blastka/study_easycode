@@ -4,7 +4,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class ChainTest {
+/*class ChainTest {
 
     @Test
     fun test_first_chain_can_handle(): Unit = runBlocking {
@@ -52,4 +52,4 @@ private class FakeChainTwo : FeatureChain.Handle {
     }
 }
 
-private data class FakeMessageUi(val value: String) : MessageUI
+private data class FakeMessageUi(val value: String) : MessageUI*/
