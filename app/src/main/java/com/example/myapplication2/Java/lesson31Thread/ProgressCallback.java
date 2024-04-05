@@ -1,8 +1,6 @@
-package com.example.myapplication2.Java.lesson31;
+package com.example.myapplication2.Java.lesson31Thread;
 
 import java.io.PrintStream;
-
-import kotlin.jvm.Volatile;
 
 public interface ProgressCallback {
 

@@ -1,4 +1,4 @@
-package com.example.myapplication2.Java.lesson31;
+package com.example.myapplication2.Java.lesson31Thread;
 
 public class Solution {
     public static void main(String[] args) throws InterruptedException {

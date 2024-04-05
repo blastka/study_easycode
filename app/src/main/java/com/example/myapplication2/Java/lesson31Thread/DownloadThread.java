@@ -1,4 +1,4 @@
-package com.example.myapplication2.Java.lesson31;
+package com.example.myapplication2.Java.lesson31Thread;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;

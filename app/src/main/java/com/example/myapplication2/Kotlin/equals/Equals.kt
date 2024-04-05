@@ -1,4 +1,4 @@
-package com.example.myapplication2.Kotlin.MyTest
+package com.example.myapplication2.Kotlin.equals
 /*
 * Вопрос: equals и == в kotlin
 * ===
@@ -10,9 +10,10 @@ fun main() {
     var hash1 = first.hashCode()
     var hash2 = second.hashCode()
     println("first hashcode " + hash1 + " second hashCode " + hash2)
-    println(first == second)
-    println(first === second)
-    println(first.equals(second))
+    println("first == second " + (first == second))
+    println("first === second " + (first === second))
+    println("first.equals(second) " + (first.equals(second)))
+
     second = first
     println("second $second")
     println(first == second)
@@ -21,9 +22,16 @@ fun main() {
 
     val firstLittleCat = LittleCat(1,2)
     val secondLittleCat = LittleCat(1,2)
-    println(firstLittleCat == secondLittleCat)
-    println(firstLittleCat.equals(secondLittleCat))
-    println(firstLittleCat === secondLittleCat)
+    println("firstLittleCat == secondLittleCat " + (firstLittleCat == secondLittleCat)) //true
+    println("firstLittleCat.equals(secondLittleCat) " + (firstLittleCat.equals(secondLittleCat)))//true
+    println("firstLittleCat === secondLittleCat " + (firstLittleCat === secondLittleCat))//false
+
+    val firstLittleCat1 = LittleCat(1,3)
+    val secondLittleCat1 = LittleCat(1,2)
+    println("firstLittleCat1 == secondLittleCat1 " + (firstLittleCat1 == secondLittleCat1))
+    println("firstLittleCat1.equals(secondLittleCat1) " + (firstLittleCat1.equals(secondLittleCat1)))
+    println("firstLittleCat1 === secondLittleCat1 " + (firstLittleCat1 === secondLittleCat1))
+
     val firstInt: Int? = 300
     val secondInt: Int? = 300
     hash1 = firstInt.hashCode()

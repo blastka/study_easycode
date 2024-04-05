@@ -1,11 +1,10 @@
-package com.example.myapplication2.interview.hashmap;
+package com.example.myapplication2.interview.ijava.object;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Cloneable {
     private final int age;
     private final String name;
-
 
     @Override
     public String toString() {
@@ -37,5 +36,25 @@ public class Person {
     public int hashCode() {
         System.out.println("hashcodename " + name + " " + Objects.hash(age, name));
         return Objects.hash(age, name);
+    }
+
+    /**
+     * Возвращает не то, что нам хотелось бы (Object) а нужно Person, поэтому сделаем каст
+     */
+    public Person clonePerson() throws CloneNotSupportedException {
+        return (Person) clone();
+    }
+
+    public Object clonePersonObject() throws CloneNotSupportedException {
+        return clone();
+    }
+
+    public void check(){
+
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("finalize");
     }
 }

@@ -1,4 +1,6 @@
-package com.example.myapplication2.interview.hashmap;
+package com.example.myapplication2.interview.ijava.object.hashmap;
+
+import com.example.myapplication2.interview.ijava.object.Person;
 
 import java.util.HashMap;
 

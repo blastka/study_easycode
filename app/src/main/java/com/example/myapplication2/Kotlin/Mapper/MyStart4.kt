@@ -32,7 +32,6 @@ interface ShowString4<T>{
     fun showString(a: String): T
 }
 
-
 fun main() {
     val one = OneS4("123")
     val two = TwoS4(1)
